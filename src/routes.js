@@ -1,17 +1,25 @@
 import React from 'react';
 
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import SignIn from '~/pages/SignIn';
 import SignUp from '~/pages/SignUp';
 
-const Stack = createStackNavigator();
+import Dashboard from '~/pages/Dashboard';
 
-export default function createRouter() {
-  return (
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+
+export default function createRouter(isSigned = false) {
+  return !isSigned ? (
     <Stack.Navigator headerMode="none">
       <Stack.Screen name="SignIn" component={SignIn} />
       <Stack.Screen name="SignUp" component={SignUp} />
     </Stack.Navigator>
+  ) : (
+    <Tab.Navigator>
+      <Tab.Screen name="Dashboard" component={Dashboard} />
+    </Tab.Navigator>
   );
 }
