@@ -29,7 +29,7 @@ export default function SelectProvider({ navigation }) {
           renderItem={({ item: provider }) => (
             <Provider
               onPress={() =>
-                navigation.navigate('SelecioneDateTime', { provider })
+                navigation.navigate('SelectDateTime', { provider })
               }
             >
               <Avatar
@@ -48,8 +48,12 @@ export default function SelectProvider({ navigation }) {
   );
 }
 
+/* SelectProvider.propTypes = {
+  navigation: PropTypes.oneOfType([PropTypes.shape, PropTypes.func]).isRequired,
+}; */
+
 SelectProvider.propTypes = {
   navigation: PropTypes.shape({
-    navigate: PropTypes.shape,
+    navigate: PropTypes.func,
   }).isRequired,
 };

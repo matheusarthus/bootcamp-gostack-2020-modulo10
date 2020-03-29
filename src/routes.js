@@ -47,7 +47,7 @@ function NewStack() {
         })}
       />
       <Stack.Screen
-        name="SelectDataTime"
+        name="SelectDateTime"
         component={SelectDateTime}
         options={({ navigation }) => ({
           headerTitle: 'Selecione o horário',
